@@ -27,6 +27,13 @@ body {
     flex-wrap: wrap;
     align-content: flex-start;
     gap: 1ch;
+    overflow: hidden;
+}
+
+.history-item {
+    white-space: nowrap;
+    opacity: 0.7;
+    transition: opacity 0.3s ease;
 }
 
 .container {
