@@ -7,8 +7,11 @@ describe('Cloudflare Workers', () => {
     const response = await worker.default.fetch(request);
     
     expect(response.status).toBe(200);
-    const json = await response.json() as { message: string };
-    expect(json.message).toBe('Hello World!');
+    expect(response.headers.get('Content-Type')).toBe('text/html; charset=utf-8');
+    const html = await response.text();
+    expect(html).toContain('<!DOCTYPE html');
+    expect(html).toContain('カニクリームコロッケ');
+    expect(html).toContain('シャッフル');
   });
 
   test('should handle health check', async () => {
