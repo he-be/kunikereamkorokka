@@ -16,7 +16,7 @@ class KaniKreamShuffler {
     constructor() {
         this.config = {
             initialText: 'カニクリームコロッケ',
-            changeablePositions: [0, 2, 5, 6, 7, 8], // カ、ク、ム、コ、ロ、ケ
+            changeablePositions: [0, 2, 5, 6, 7, 9], // カ、ク、ム、コ、ロ、ケ
             shuffleOperations: 3
         };
 
@@ -66,13 +66,13 @@ class KaniKreamShuffler {
             // Fisher-Yates shuffle algorithm
             for (let j = shuffledPositions.length - 1; j > 0; j--) {
                 const k = Math.floor(Math.random() * (j + 1));
-                [shuffledPositions[j], shuffledPositions[k]] = [shuffledPositions[k], shuffledPositions[j]];
+                [shuffledPositions[j], shuffledPositions[k]] = [shuffledPositions[k]!, shuffledPositions[j]!];
             }
 
-            const pos1 = shuffledPositions[0];
-            const pos2 = shuffledPositions[1];
+            const pos1 = shuffledPositions[0]!;
+            const pos2 = shuffledPositions[1]!;
 
-            [chars[pos1], chars[pos2]] = [chars[pos2], chars[pos1]];
+            [chars[pos1], chars[pos2]] = [chars[pos2]!, chars[pos1]!];
         }
 
         return chars.join('');
@@ -148,15 +148,15 @@ class KaniKreamShuffler {
         return new Promise(resolve => {
             setTimeout(() => {
                 changedPositions.forEach(pos => {
-                    const span = spanElements[pos];
+                    const span = spanElements[pos]!;
                     span.style.transform = 'translateY(-20px)';
                     span.style.opacity = '0.3';
                 });
 
                 setTimeout(() => {
                     changedPositions.forEach(pos => {
-                        const span = spanElements[pos];
-                        span.textContent = newChars[pos];
+                        const span = spanElements[pos]!;
+                        span.textContent = newChars[pos]!;
                         span.style.transform = 'translateY(0)';
                         span.style.opacity = '1';
                     });
