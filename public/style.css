@@ -1,0 +1,124 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Hiragino Sans', 'Noto Sans JP', sans-serif;
+    height: 100vh;
+    overflow: hidden;
+    position: relative;
+}
+
+.background-history {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+    color: #e0e0e0;
+    font-size: 14px;
+    line-height: 1.8;
+    word-wrap: break-word;
+    z-index: 1;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    gap: 1ch;
+    overflow: hidden;
+}
+
+.history-item {
+    white-space: nowrap;
+    opacity: 0.7;
+    transition: opacity 0.3s ease;
+}
+
+.container {
+    position: relative;
+    z-index: 2;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.main-content {
+    text-align: center;
+    background: rgba(255, 255, 255, 0.95);
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+}
+
+.shuffle-text {
+    font-size: 3rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 30px;
+    letter-spacing: 0.1em;
+    line-height: 1.2;
+}
+
+.shuffle-button {
+    background: linear-gradient(135deg, #ff6b6b, #ff8e53);
+    color: white;
+    border: none;
+    padding: 15px 40px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(255, 107, 107, 0.3);
+}
+
+.shuffle-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(255, 107, 107, 0.4);
+}
+
+.shuffle-button:active {
+    transform: translateY(0);
+}
+
+.shuffle-button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+}
+
+@media (max-width: 768px) {
+    .main-content {
+        padding: 30px 20px;
+        margin: 20px;
+    }
+    
+    .shuffle-text {
+        font-size: 2rem;
+        margin-bottom: 20px;
+    }
+    
+    .shuffle-button {
+        padding: 12px 30px;
+        font-size: 1rem;
+    }
+    
+    .background-history {
+        padding: 10px;
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 480px) {
+    .shuffle-text {
+        font-size: 1.5rem;
+    }
+    
+    .main-content {
+        padding: 20px 15px;
+    }
+}

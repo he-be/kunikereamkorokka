@@ -39,6 +39,9 @@ jobs:
         if: github.event_name == 'pull_request'
         uses: davelosert/vitest-coverage-report-action@v2
       
+      - name: Build TypeScript webapp
+        run: npm run build:webapp
+      
       - name: Build for Cloudflare Workers
         run: npm run build:worker
 
